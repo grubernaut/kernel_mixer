@@ -1,5 +1,0 @@
-@set version-GCC 4.6.3
-@clear DEVELOPMENT
-@set srcdir /usr/local/src/build-gcc/gcc/../../gcc-4.6.3/gcc
-@set VERSION_PACKAGE (GCC) 
-@set BUGURL @uref{http://gcc.gnu.org/bugs.html}

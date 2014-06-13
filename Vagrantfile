@@ -12,6 +12,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise64"
 
-  config.vm.synced_folder "source/", "/usr/local/src/"
+  config.vm.synced_folder "source/", "/home/vagrant/opt"
+
+  config.vm.provision :shell, path: "bootstrap.sh"
 
 end
