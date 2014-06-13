@@ -7,17 +7,10 @@ Currently still in development. Currently only builds local toolchain for the i6
 architecture. Will be adding in kernel source shortly. 
 
 Needs:
-<<<<<<< HEAD
- * Vagrant Provision System to setup environment variables and dependant packages
- * A kernel
- * Compile Instructions
-=======
 	* ~~Vagrant Provision System to setup environment variables and dependant packages~~
 	* A kernel
 	* ~~Compile Instructions~~
 	* Auto-Compile Shell Script
->>>>>>> Remove Large Libraries
-
 
 Current Development Process:
 
@@ -41,6 +34,7 @@ export PREFIX="/usr/local/src/cross"
 export TARGET=i686-elf
 export PATH="$PREFIX/bin:$PATH"
 ```
+
 Compile Toolchain and GCC Cross Compiler
 ----------------------------------------
 
