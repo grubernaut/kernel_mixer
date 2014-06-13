@@ -12,9 +12,9 @@ community Vagrant Box and slim the size of the repository down considerably. As 
 repository is currently only holding the toolchain, no kernel included. 
 
 Needs:
-	* Vagrant Provision System to setup environment variables and dependant packages
-	* A kernel
-	* Compile Instructions
+ * Vagrant Provision System to setup environment variables and dependant packages
+ * A kernel
+ * Compile Instructions
 
 
 Current Development Process:
