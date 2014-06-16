@@ -2,7 +2,7 @@
 
 PROFILE=/home/vagrant/.profile
 apt-get update
-apt-get install -y libgmp3-dev libmpfr-dev libisl-dev libcloog-isl-dev libmpc-dev vim
+apt-get install -y libgmp3-dev libmpfr-dev libisl-dev libcloog-isl-dev libmpc-dev vim xorriso
 
 su vagrant
 mkdir -p /home/vagrant/opt/cross/bin

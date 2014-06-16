@@ -1,3 +1,6 @@
 .vagrant/*
 source/src/*
+*.o
+*.bin
+*.iso
 

@@ -1,4 +1,4 @@
-Kernel_Mixer v. 0.1
+Kernel_Mixer v. 0.5
 =============================================
 
 Kernel_Mixer is a teaching tool designed to enable a user to compile, write, and test custom kernel architectures inside a protected test environment. By developing a custom kernel inside of a Vagrant box, the risk of ruining a user's local development machine is mitigated. Future plans are to incorporate a test-kitchen-esque test harness that will provision a new Vagrant Box that will boot a locally developed kernel before running a full test suite. 
@@ -96,4 +96,48 @@ which i686-elf-gcc
 ```
 To ensure the path is set to ```/home/vagrant/opt/src/cross/bin/``` as expected. 
 
-< Kernel Notes To Be Added > 
+
+Compile The Kernel
+=========================================
+In this repo I have included a VERY basic kernel image to read through and practice with. Inside the ```kernel``` directory we have:
+```bash
+kernel.c
+boot.s
+linker.ld
+```
+Edit each as needed then compile each with your pre-compiled toolchain as shown:
+**Linker**
+```bash
+i686-elf-as boot.s -o boot.o
+```
+**Kernel**
+```bash
+i686-elf-gcc -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+```
+**Linker**
+```bash
+i686-elf-gcc -T linker.ld -o myos.bin -ffreestanding -O2 -nostdlib boot.o kernel.o -lgcc
+```
+
+Replacing ```myos.bin``` with your chosen os's name. 
+
+Testing the Kernel
+====================================
+
+I have included a basic grub configuration in ```isodir/boot/grub/grub.cfg```.
+If you copy your compiled kernel binary into the boot directory like this:
+```bash
+cp kernel/myos.bin isodir/boot/
+```
+Then you can create a bootable .iso file with your new kernel. You can do this with the ```grub-mkrescue``` command as shown:
+```bash
+grub-mkrescue -o myos.iso isodir
+```
+
+**NOTE:**
+I have yet to figure out how to get Vagrant to just boot a plain .iso file, yet once I figure that out testing the kernel will be a lot easier. As of now, it is a hectic task of getting it to boot with qemu+kvm. 
+Should you still want to boot to qemu+kvm, install the necessary libraries for your host environment then run:
+```bash
+qemu-system-i386 -cdrom myos.iso
+```
+
