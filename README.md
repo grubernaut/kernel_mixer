@@ -8,7 +8,7 @@ architecture. Will be adding in kernel source shortly.
 
 Needs:
  * ~~Vagrant Provision System to setup environment variables and dependant packages~~
- * A kernel
+ * ~~A kernel~~
  * ~~Compile Instructions~~
  * Auto-Compile Shell Script
 
